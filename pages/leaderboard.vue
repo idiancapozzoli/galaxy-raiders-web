@@ -1,10 +1,10 @@
 <template>
-    <div id="canvas">
-      <div id="deep-space" />
-      <div id="board">
-        <h1 id="game-title">GALAXY RAIDERS</h1>
-        <h1 id="board-title">Leaderboard</h1>
-        <table id="board-data">
+    <div id="board">
+        <div id="title">
+            <img id="title-leaderboard" :src="titleImg" />
+        </div>
+        <h1>Leaderboard</h1>
+        <table>
           <thead>
             <tr>
               <th>Date & time</th>
@@ -20,10 +20,13 @@
             </tr>
           </tbody>
         </table>
-      </div>
     </div>
   </template>
   
+  <script setup>
+    import titleImg from "assets/title.png"
+    </script>
+
   <script>
   import JSON from '~/score/Leaderboard.json'
   
@@ -42,42 +45,20 @@
   </script>
   
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@500&display=swap');
   
-  #canvas {
-    height: calc(100vh - 4rem);
-    width: calc(100vw - 4rem);
-  
-    padding: 2rem;
-  
-    background-color: #36bbf5;
-    overflow: hidden;
-  
-    position: relative;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #deep-space {
-    height: calc(100% - 4rem);
-    width: calc(100% - 4rem);
-  
-    background-image: url("~/assets/space.png");
-    background-origin: content-box;
-    animation: slide 3s linear infinite;
-  
-    position: absolute;
-    z-index: 0;
-  }
-  
+  #title-leaderboard{
+    width: 60%;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
   #board {
-    height: calc(100% - 4rem);
-    width: calc(100% - 4rem);
+    height: calc(100% - 10rem);
+    width: calc(100% - 10rem);
     
     color: orange;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Sarpanch';
     font-size: large;
   
     position: relative;
@@ -88,7 +69,4 @@
     text-align: center;
   }
   
-  #game-title {
-    color: #36bbf5;
-  }
   </style>
