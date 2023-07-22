@@ -1,71 +1,78 @@
 <template>
-  <div id="canvas">
-    <div id="deep-space" />
-    <div id="menu">
-      <h1 id="game-title">GALAXY RAIDERS</h1>
-      <button><router-link class="menu-button" to="/game">Iniciar partida</router-link></button>
-      <button><router-link class="menu-button" to="/leaderboard">Visualizar placar</router-link></button>
-      <button><router-link class="menu-button" to="/exit">Fechar jogo</router-link></button>
+    <div id="template">
+        <div id="background">
+            <div id="title">
+                <img id="title" :src="titleImg" />
+            </div>
+            <div id="selection">
+                <div><button class="indexbutton"><a href="game"><img class="indexbuttonImg" :src="startButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+                <div><button class="indexbutton"><a href="leaderboard"><img class="indexbuttonImg" :src="scoreButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+                <div><button class="indexbutton"><a href="http://www.google.com"><img class="indexbuttonImg" :src="exitButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+            </div>
+
+        </div>
     </div>
-  </div>
 </template>
 
+<script setup>
+import titleImg from "assets/title.png"
+import startButton from "assets/startButton.png"
+import scoreButton from "assets/scoreButton.png"
+import exitButton from "assets/exitButton.png"
+import spaceship from "assets/spaceship.png"
+</script>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-
-#canvas {
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 4rem);
-
-  padding: 2rem;
-
-  background-color: #36bbf5;
-  overflow: hidden;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#background{
+    margin: 15em;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#deep-space {
-  height: calc(100% - 4rem);
-  width: calc(100% - 4rem);
-
-  background-image: url("~/assets/space.png");
-  background-origin: content-box;
-  animation: slide 3s linear infinite;
-
-  position: absolute;
-  z-index: 0;
+#template{
+    display:flex;
+    justify-content:center;
+    background-image: url(assets/space.gif);
+    background-repeat: no-repeat; 
+    background-size: 100vw 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
-#menu {
-  height: calc(100% - 4rem);
-  width: calc(100% - 4rem);
-  
-  color: orange;
-  font-family: 'Russo One', sans-serif;
-  font-size: large;
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#title{
+    width: 200em;
 }
 
-#game-title {
-  color: #36bbf5;
+#selection{
+    display:flex;
+    flex-direction: column;
+}
+.indexbutton{
+    background-color: transparent;
+    width: 25em;
+    height: 8em;
+    border-color: transparent;
+    margin-top: 10em;
 }
 
-.menu-button {
-  background-color: black;
-  color: orange;
-  font-family: 'Russo One', sans-serif;
-  font-size: large;
-  text-decoration: none;
+.indexbuttonImg{
+    width: 25em;
+    height: 8em;
 }
+.indexbutton:hover ~ .spaceship{
+    visibility: visible;
+
+}
+.indexspaceship{
+    transform: rotate(-0.25turn);
+    visibility: hidden;
+    width: 10em;
+
+    
+}
+
+
 </style>
