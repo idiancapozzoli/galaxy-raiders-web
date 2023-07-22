@@ -5,9 +5,9 @@
                 <img id="title" :src="titleImg" />
             </div>
             <div id="selection">
-                <div><button class="indexbutton"><a href="game"><img class="indexbuttonImg" :src="startButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
-                <div><button class="indexbutton"><a href="leaderboard"><img class="indexbuttonImg" :src="scoreButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
-                <div><button class="indexbutton"><a href="http://www.google.com"><img class="indexbuttonImg" :src="exitButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+                <div class="indexbutton"><button><a href="game"><img class="indexbuttonImg" :src="startButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+                <div class="indexbutton"><button><a href="leaderboard"><img class="indexbuttonImg" :src="scoreButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
+                <div class="indexbutton"><button><a href="https://www.google.com"><img class="indexbuttonImg" :src="exitButton" /></a></button><img class="indexspaceship" :src="spaceship" /></div>
             </div>
 
         </div>
@@ -24,7 +24,7 @@ import spaceship from "assets/spaceship.png"
 
 <style>
 #background{
-    margin: 15em;
+    margin: 5%;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -32,46 +32,62 @@ import spaceship from "assets/spaceship.png"
     justify-content: space-between;
 }
 
+body{
+    background-image: url(assets/space.gif);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+}
 #template{
     display:flex;
     justify-content:center;
     background-image: url(assets/space.gif);
     background-repeat: no-repeat; 
-    background-size: 100vw 100vh;
-    width: 100vw;
-    height: 100vh;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #title{
-    width: 200em;
+    width: 100%;
+    margin-bottom: 5%;
 }
 
 #selection{
     display:flex;
     flex-direction: column;
+    align-items: center;
+
 }
 .indexbutton{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    margin-bottom: 40%;
+}
+
+.indexbutton button{
     background-color: transparent;
-    width: 25em;
-    height: 8em;
     border-color: transparent;
-    margin-top: 10em;
+    display: flex;
+    align-items: center;
+    
 }
 
 .indexbuttonImg{
-    width: 25em;
-    height: 8em;
+    width: 100%;
+    height: 50%;
 }
-.indexbutton:hover ~ .spaceship{
+.indexbutton button:hover ~ .indexspaceship{
     visibility: visible;
-
 }
+
 .indexspaceship{
     transform: rotate(-0.25turn);
     visibility: hidden;
-    width: 10em;
-
-    
+    width: 30%;
+ 
 }
 
 
