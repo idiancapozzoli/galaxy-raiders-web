@@ -13,10 +13,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="data in board" :key="data">
-              <td>{{ data}}</td>
-              <td>{{ data.destroyedAsteroids}}</td>
-              <td>{{ data.score }}</td>
+            <tr v-for="(data, datetime) in board" :key="datetime">
+                <td>{{ formatDateTime(datetime) }}</td>
+                <td>{{ data.destroyedAsteroids }}</td>
+                <td>{{ data.score }}</td>
             </tr>
           </tbody>
         </table>
@@ -27,9 +27,18 @@
   <script>
   import JSON from '~/score/Leaderboard.json'
   
-  export default{
-    data(){ return{ board: JSON } }
-  }
+  export default {
+    data() {
+        return {
+        board: JSON,
+        };
+    },
+    methods: {
+        formatDateTime(datetime) {
+        return new Date(datetime).toLocaleString();
+        },
+    },
+  };
   </script>
   
   <style>
