@@ -57,7 +57,7 @@
     height: calc(100% - 10rem);
     width: calc(100% - 10rem);
     
-    color: orange;
+    color: white;
     font-family: 'Sarpanch';
     font-size: large;
   
